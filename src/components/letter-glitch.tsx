@@ -57,6 +57,8 @@ export function LetterGlitch() {
     let cells: Cell[] = [];
     let columns = 0;
     let lastTick = 0;
+    let lastWidth = 0;
+    let lastHeight = 0;
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -78,13 +80,22 @@ export function LetterGlitch() {
     const resize = () => {
       const ratio = window.devicePixelRatio || 1;
       const rect = parent.getBoundingClientRect();
-      canvas.width = Math.max(1, rect.width) * ratio;
-      canvas.height = Math.max(1, rect.height) * ratio;
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
+      const width = Math.max(1, rect.width);
+      const height = Math.max(1, rect.height);
+
+      if (Math.abs(width - lastWidth) < 0.5 && Math.abs(height - lastHeight) < 0.5) {
+        return;
+      }
+
+      lastWidth = width;
+      lastHeight = height;
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      columns = Math.ceil(rect.width / 10);
-      const rows = Math.ceil(rect.height / 20);
+      columns = Math.ceil(width / 10);
+      const rows = Math.ceil(height / 20);
       cells = Array.from({ length: columns * rows }, () => {
         const color = randomColor();
         return {
@@ -149,10 +160,13 @@ export function LetterGlitch() {
       frame = window.requestAnimationFrame(tick);
     }
 
+    const observer = new ResizeObserver(() => resize());
+    observer.observe(parent);
     window.addEventListener("resize", resize);
 
     return () => {
       window.cancelAnimationFrame(frame);
+      observer.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, []);
@@ -160,7 +174,6 @@ export function LetterGlitch() {
   return (
     <div className="relative h-full w-full overflow-hidden bg-black">
       <canvas ref={canvasRef} className="block h-full w-full" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_60%,rgba(0,0,0,1)_100%)]" />
     </div>
   );
 }

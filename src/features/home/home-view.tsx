@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { profile } from "@/content/profile";
 import { ExperienceSection } from "@/features/experience/experience-section";
-import { GlitchSection } from "@/features/home/glitch-section";
+import { FeaturedProjects } from "@/features/home/featured-projects";
+import { GithubSection } from "@/features/home/github-section";
 import portrait from "@/ref/marufmobin.jpg";
 
-export function HomeView() {
+export async function HomeView() {
   return (
     <>
     <section className="grid min-h-svh items-stretch bg-black font-[family-name:var(--font-montserrat),sans-serif] text-white md:grid-cols-2">
@@ -63,7 +64,8 @@ export function HomeView() {
         </div>
       </div>
     </section>
-    <GlitchSection />
+    <FeaturedProjects />
+    <GithubSection />
     <ExperienceSection />
     </>
   );
