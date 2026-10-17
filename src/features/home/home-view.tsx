@@ -2,7 +2,7 @@ import Link from "next/link";
 import { profile } from "@/content/profile";
 import { ExperienceSection } from "@/features/experience/experience-section";
 import { FeaturedProjects } from "@/features/home/featured-projects";
-import { GithubSection } from "@/features/home/github-section";
+import { GithubPractice } from "@/features/home/github-practice";
 import portrait from "@/ref/marufmobin.jpg";
 
 export async function HomeView() {
@@ -65,7 +65,7 @@ export async function HomeView() {
       </div>
     </section>
     <FeaturedProjects />
-    <GithubSection />
+    <GithubPractice />
     <ExperienceSection />
     </>
   );

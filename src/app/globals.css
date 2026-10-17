@@ -68,3 +68,15 @@ body {
   color: var(--background);
   padding: 0.5rem 0.75rem;
 }
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -18,11 +18,14 @@ export function AboutView() {
       */}
 
       <section id="work_experience">
-        <h2 className="font-serif text-3xl tracking-tight">
-          My Work <span className="text-[#A476FF]">Experience</span>
+        <p className="text-xs font-medium tracking-[0.18em] text-[#A476FF] uppercase">
+          Career
+        </p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
+          Work <span className="text-[#A476FF]">Experience</span>
         </h2>
-        <div className="mt-8">
-          <ExperienceList items={profile.experience} />
+        <div className="mt-10">
+          <ExperienceList items={[...profile.experience].reverse()} />
         </div>
       </section>
     </Container>

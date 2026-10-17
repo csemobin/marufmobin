@@ -3,45 +3,34 @@ import { site } from "@/content/site";
 import { GithubChart } from "@/features/home/github-chart";
 import {
   getGithubContributions,
-  getGithubProfile,
+  getGithubLanguages,
 } from "@/features/home/github-contributions";
-import { GithubPractice } from "@/features/home/github-practice";
+import { GithubLanguages } from "@/features/home/github-languages";
 
 export async function GithubSection() {
-  const [data, profile] = await Promise.all([
+  const [data, languages] = await Promise.all([
     getGithubContributions(),
-    getGithubProfile(),
+    getGithubLanguages(),
   ]);
 
   return (
-    <section className="relative overflow-hidden bg-black font-[family-name:var(--font-montserrat),sans-serif] text-white">
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          aria-hidden="true"
-          className="absolute inset-y-[12%] left-0 w-4/5 bg-[#5e4491]/30 blur-3xl"
-        />
-        <LetterGlitch />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(to_bottom,#000_0%,rgba(0,0,0,0.55)_14%,transparent_36%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(to_top,#000_0%,rgba(0,0,0,0.55)_14%,transparent_36%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(to_left,#000_0%,rgba(0,0,0,0.9)_18%,rgba(0,0,0,0.35)_32%,transparent_48%)]"
-        />
-      </div>
-      <div className="relative z-10 flex flex-wrap items-start justify-between gap-x-16 gap-y-12 px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
-        <div className="w-fit max-w-full bg-black/10 px-8 py-10 backdrop-blur-[2px] sm:px-10 sm:py-12">
-          <div className="flex flex-wrap items-end justify-between gap-4">
+    <section className="bg-black px-6 py-10 font-[family-name:var(--font-montserrat),sans-serif] text-white sm:px-10 md:py-14">
+      <div className="relative mx-auto w-full max-w-6xl overflow-hidden border border-white/10 bg-black/70">
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <LetterGlitch />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#000_78%)]"
+          />
+        </div>
+
+        <div className="relative z-10 px-5 py-7 sm:px-8 sm:py-8 md:px-10">
+          <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="text-xs font-medium tracking-[0.18em] text-[#A476FF] uppercase">
                 GitHub
               </p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="mt-1 text-3xl font-bold tracking-tight md:text-4xl">
                 Contributions
               </h2>
             </div>
@@ -54,19 +43,27 @@ export async function GithubSection() {
               {site.github}
             </a>
           </div>
-          {data ? (
-            <GithubChart
-              total={data.total}
-              contributions={data.contributions}
-              asOf={data.asOf}
-            />
-          ) : (
-            <p className="mt-8 text-sm text-white/60">
-              Contribution history is unavailable right now.
-            </p>
-          )}
+
+          <div className="mt-6 grid items-start gap-7 lg:grid-cols-[minmax(0,1.45fr)_minmax(15rem,0.7fr)] lg:gap-10">
+            <div className="min-w-0">
+              {data ? (
+                <GithubChart
+                  total={data.total}
+                  contributions={data.contributions}
+                  asOf={data.asOf}
+                />
+              ) : (
+                <p className="text-sm text-white/60">
+                  Contribution history is unavailable right now.
+                </p>
+              )}
+            </div>
+
+            <div className="min-w-0 border-t border-white/10 pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+              <GithubLanguages languages={languages} />
+            </div>
+          </div>
         </div>
-        <GithubPractice publicRepos={profile?.publicRepos ?? null} />
       </div>
     </section>
   );

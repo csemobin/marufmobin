@@ -53,8 +53,8 @@ export function GithubChart({ total, contributions, asOf }: GithubChartProps) {
   const count = year ? (total[year] ?? 0) : 0;
 
   return (
-    <div className="mt-8">
-      <div className="flex gap-2 overflow-x-auto pb-1">
+    <div>
+      <div className="flex flex-wrap gap-2">
         {years.map((item) => {
           const selected = item === year;
 
@@ -64,7 +64,7 @@ export function GithubChart({ total, contributions, asOf }: GithubChartProps) {
               type="button"
               onClick={() => setYear(item)}
               aria-pressed={selected}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
                 selected
                   ? "bg-[#A476FF] text-black"
                   : "bg-white/5 text-white/75 hover:bg-white/10"
@@ -75,36 +75,36 @@ export function GithubChart({ total, contributions, asOf }: GithubChartProps) {
           );
         })}
       </div>
-      <p className="mt-5 text-sm text-[#f3f3f3]/80">
+      <p className="mt-4 text-base text-[#f3f3f3]/80">
         <span className="text-lg font-semibold text-white">
           {count.toLocaleString()}
         </span>{" "}
         commits in {year}
       </p>
-      <div className="mt-5 overflow-x-auto">
-          <div className="flex w-max gap-1" aria-hidden="true">
-            {weeks.map((week, weekIndex) => (
-              <div key={weekIndex} className="grid gap-1">
-                {week.map((day, dayIndex) => (
-                  <span
-                    key={day?.date ?? `empty-${weekIndex}-${dayIndex}`}
-                    title={
-                      day
-                        ? `${day.count} commit${day.count === 1 ? "" : "s"} on ${day.date}`
-                        : undefined
-                    }
-                    className="size-3 rounded-[2px]"
-                    style={{
-                      backgroundColor: day
-                        ? LEVELS[Math.min(day.level, LEVELS.length - 1)]
-                        : "transparent",
-                    }}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
+      <div className="mt-4 w-full overflow-hidden" aria-hidden="true">
+        <div className="flex w-full gap-[2px] sm:gap-1">
+          {weeks.map((week, weekIndex) => (
+            <div key={weekIndex} className="grid min-w-0 flex-1 gap-[2px] sm:gap-1">
+              {week.map((day, dayIndex) => (
+                <span
+                  key={day?.date ?? `empty-${weekIndex}-${dayIndex}`}
+                  title={
+                    day
+                      ? `${day.count} commit${day.count === 1 ? "" : "s"} on ${day.date}`
+                      : undefined
+                  }
+                  className="aspect-square w-full rounded-[2px] sm:rounded-[3px]"
+                  style={{
+                    backgroundColor: day
+                      ? LEVELS[Math.min(day.level, LEVELS.length - 1)]
+                      : "transparent",
+                  }}
+                />
+              ))}
+            </div>
+          ))}
         </div>
+      </div>
     </div>
   );
 }
