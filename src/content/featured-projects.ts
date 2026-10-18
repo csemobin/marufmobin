@@ -1,21 +1,3 @@
-export const featuredHighlights = [
-  {
-    key: "lms-ios",
-    title: "LMS on iPhone",
-    href: "https://apps.apple.com/us/app/lms-official-app/id6761157463",
-  },
-  {
-    key: "lms-android",
-    title: "LMS on Android",
-    href: "https://play.google.com/store/apps/details?id=com.fondationlms.theofficiallmsapp&hl=en",
-  },
-  {
-    key: "lyfuber",
-    title: "Lyfuber",
-    href: "https://play.google.com/store/apps/details?id=com.lyfuber.app&hl=en",
-  },
-] as const;
-
 export const featuredStories = [
   {
     key: "lms",
@@ -29,7 +11,7 @@ export const featuredStories = [
       },
       {
         label: "Google Play",
-        href: "https://play.google.com/store/apps/details?id=com.fondationlms.theofficiallmsapp&hl=en",
+        href: "https://play.google.com/store/apps/details?id=com.fondationlms.theofficiallmsapp&pli=1",
       },
     ],
   },
@@ -42,6 +24,56 @@ export const featuredStories = [
       {
         label: "Google Play",
         href: "https://play.google.com/store/apps/details?id=com.lyfuber.app&hl=en",
+      },
+    ],
+  },
+] as const;
+
+export const featuredApps = [
+  {
+    key: "lms",
+    title: "LMS Official App",
+    body: "Tutor booking, messaging, and in-app documents for parents, tutors, and students.",
+    links: [
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/us/app/lms-official-app/id6761157463",
+      },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.fondationlms.theofficiallmsapp&pli=1",
+      },
+    ],
+  },
+  {
+    key: "lyfuber",
+    title: "Lyfuber",
+    body: "Ride sharing with live maps for riders and drivers across daily trips and nights out.",
+    links: [
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.lyfuber.app&hl=en",
+      },
+    ],
+  },
+  {
+    key: "court-connect",
+    title: "Court Connect",
+    body: "Sports session booking with search, filters, and court details in one place.",
+    links: [],
+  },
+  {
+    key: "sleeknit",
+    title: "Sleeknit",
+    body: "Merchant dashboard for products, orders, revenue, and recent order tracking.",
+    links: [
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/us/app/sleeknit/id6779087355",
+      },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.sleeknit.app&hl=en",
       },
     ],
   },

@@ -1,14 +1,14 @@
 import type { Experience } from "@/content/types";
 
 export const profile = {
-  eyebrow: "Mobile Application Developer",
+  eyebrow: "Maruf Mobin · Flutter Developer",
   headline: "Crafting Pixel-Perfect Mobile Apps & Next-Gen Digital Products",
-  lede: "Professional Flutter Developer with a strong foundation in Full-Stack Engineering (MERN & Laravel). Currently expanding into AI Engineering to build intelligent, high-performance cross-platform applications.",
+  lede: "Maruf Mobin is a Flutter Developer and Mobile Application Developer building cross-platform apps. An App Developer with a full-stack foundation in MERN and Laravel, now expanding into AI Engineering for intelligent, high-performance products.",
   intro:
-    "I mainly build mobile applications with Flutter, and I use a full-stack background in React, Node.js, and Laravel to support them.",
+    "I am Maruf Mobin, a Flutter Developer and Mobile Application Developer. I build apps with Flutter and support them with a full-stack background in React, Node.js, and Laravel.",
   bio: [
-    "I am a mobile application developer. Right now my main work is Flutter: cross-platform apps with careful interfaces and performance that holds up in daily use.",
-    "Behind that is a full-stack practice in React, Node.js, Laravel, PHP, JavaScript, Python, Django, C/C++, and Mongoose. I am also studying AI engineering so those apps can grow smarter without losing clarity.",
+    "I am Maruf Mobin, a mobile application developer and Flutter Developer. My main work is cross-platform apps with careful interfaces and performance that holds up in daily use.",
+    "As an App Developer I also bring a full-stack practice in React, Node.js, Laravel, PHP, JavaScript, Python, Django, C/C++, and Mongoose. I am studying AI engineering so those apps can grow smarter without losing clarity.",
   ],
   services: [
     "Ride sharing",

@@ -1,6 +1,14 @@
+export type NavHref =
+  | "/#home"
+  | "/#projects"
+  | "/#about"
+  | "/#contact"
+  | "/#cover-letter";
+
 export type NavItem = {
-  href: "/" | "/work" | "/about" | "/contact";
+  href: NavHref;
   label: string;
+  hash: "#home" | "#projects" | "#about" | "#contact" | "#cover-letter";
 };
 
 export type SocialLink = {

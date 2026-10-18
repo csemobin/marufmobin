@@ -23,6 +23,7 @@
 
 html {
   background: #000000;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -80,3 +81,29 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes back-hero-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(1.85);
+    opacity: 0;
+  }
+}
+
+.back-hero-btn__ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2.5px solid rgba(164, 118, 255, 0.95);
+  pointer-events: none;
+  animation: back-hero-ring 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.back-hero-btn__ring--delay {
+  animation-delay: 1s;
+}
+

@@ -4,8 +4,8 @@ import { profile } from "@/content/profile";
 export function ExperienceSection() {
   return (
     <section
-      id="work_experience"
-      className="relative overflow-hidden bg-black font-[family-name:var(--font-montserrat),sans-serif] text-white"
+      id="about"
+      className="relative scroll-mt-28 overflow-hidden bg-black font-[family-name:var(--font-montserrat),sans-serif] text-white md:scroll-mt-32"
     >
       <div
         aria-hidden="true"

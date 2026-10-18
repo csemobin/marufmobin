@@ -16,8 +16,9 @@ export function QuickConnect() {
 
   return (
     <section
+      id="contact"
       aria-labelledby="quick-connect-title"
-      className="relative overflow-hidden bg-black font-[family-name:var(--font-montserrat),sans-serif] text-white"
+      className="relative scroll-mt-28 overflow-hidden bg-black font-[family-name:var(--font-montserrat),sans-serif] text-white md:scroll-mt-32"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#A476FF] to-transparent" />
       <div className="pointer-events-none absolute top-0 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-[#A476FF]/15 blur-3xl" />

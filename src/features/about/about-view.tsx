@@ -17,7 +17,7 @@ export function AboutView() {
       </div>
       */}
 
-      <section id="work_experience">
+      <section id="about" className="scroll-mt-28 md:scroll-mt-32">
         <p className="text-xs font-medium tracking-[0.18em] text-[#A476FF] uppercase">
           Career
         </p>

@@ -2,8 +2,19 @@ import type { Metadata } from "next";
 import { AboutView } from "@/features/about/about-view";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Background, focus, and experience.",
+  title: "About Maruf Mobin — Flutter Developer",
+  description:
+    "About Maruf Mobin, Flutter Developer and Mobile Application Developer. Experience building apps across ride sharing, e-commerce, fleet, and tutoring.",
+  keywords: [
+    "Maruf Mobin",
+    "Flutter Developer",
+    "Mobile Application Developer",
+    "App Developer",
+    "About",
+  ],
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

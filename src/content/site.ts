@@ -1,23 +1,32 @@
 import type { SocialLink } from "@/content/types";
 
+export const seoKeywords = [
+  "Maruf Mobin",
+  "Flutter Developer",
+  "Mobile Application Developer",
+  "App Developer",
+] as const;
+
 export const site = {
-  name: "MD MARUF",
-  role: "Mobile Application Developer",
-  title: "MD MARUF — Portfolio",
+  name: "Maruf Mobin",
+  role: "Flutter Developer · Mobile Application Developer · App Developer",
+  title:
+    "Maruf Mobin — Flutter Developer | Mobile Application Developer | App Developer",
   description:
-    "Mobile application developer focused on Flutter, with a full-stack background in React, Node.js, and Laravel.",
-  url: "https://example.com",
+    "Maruf Mobin is a Flutter Developer and Mobile Application Developer building cross-platform apps for iOS and Android. Hire an App Developer for ride sharing, e-commerce, tutoring, and more.",
+  url: "https://marufmobin.netlify.app",
   email: "appdevmaruf@gmail.com",
   phone: "+8801936 691536",
   signature: {
-    name: "Md Maruf",
+    name: "Maruf Mobin",
     role: "Flutter Developer",
     skills: ["Flutter", "Laravel", "Python", "SQL", "NO SQL"],
   },
   github: "MarufMobin",
-  location: "Your city",
+  location: "Dhaka, Bangladesh",
   availability: "Available for selected work",
   copyrightYear: "2026",
+  keywords: [...seoKeywords],
 } as const;
 
 export const socials: SocialLink[] = [
