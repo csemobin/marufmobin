@@ -17,7 +17,7 @@ export class NodemailerMailAdapter implements MailAdapter {
       const transporter = this.getTransporter();
       await transporter.sendMail({
         from: this.config.from,
-        to: this.config.to,
+        to: message.to ?? this.config.to,
         replyTo: message.replyTo,
         subject: message.subject,
         text: message.text,

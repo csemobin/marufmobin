@@ -1,8 +1,9 @@
 "use server";
 
 import { hasFieldErrors, validateContact } from "@/features/contact/schema";
-import { buildContactMailMessage } from "@/features/contact/mail-message";
 import type { ContactFormState } from "@/features/contact/state";
+import { buildOwnerNotificationMail } from "@/features/contact/templates/owner-notification";
+import { buildVisitorAcknowledgmentMail } from "@/features/contact/templates/visitor-acknowledgment";
 import {
   createMailAdapter,
   MailConfigurationError,
@@ -36,11 +37,21 @@ export async function submitContact(
 
   try {
     const mail = createMailAdapter();
-    await mail.send(buildContactMailMessage(input));
+
+    // Owner first — if this fails, the form should show an error.
+    await mail.send(buildOwnerNotificationMail(input));
+
+    // Acknowledgment is best-effort so a visitor inbox issue does not block success.
+    try {
+      await mail.send(buildVisitorAcknowledgmentMail(input));
+    } catch (ackError) {
+      console.error("[contact] acknowledgment email failed:", ackError);
+    }
 
     return {
       status: "success",
-      message: "Thanks — your message was sent. I will get back to you soon.",
+      message:
+        "Thanks — your message was sent. Check your inbox for a confirmation.",
       fieldErrors: {},
     };
   } catch (error) {

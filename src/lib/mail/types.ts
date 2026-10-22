@@ -1,6 +1,8 @@
 export type MailMessage = {
-  /** Visitor email — used as Reply-To so you can answer in one click. */
-  replyTo: string;
+  /** Overrides the adapter default inbox when set (e.g. visitor acknowledgment). */
+  to?: string;
+  /** Reply-To — e.g. visitor email on owner notifications. */
+  replyTo?: string;
   subject: string;
   text: string;
   html?: string;
