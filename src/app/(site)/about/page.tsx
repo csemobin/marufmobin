@@ -15,6 +15,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/about",
   },
+  openGraph: {
+    title: "About Maruf Mobin — Flutter Developer",
+    description:
+      "About Maruf Mobin, Flutter Developer and Mobile Application Developer. Experience building apps across ride sharing, e-commerce, fleet, and tutoring.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Maruf Mobin — Flutter Developer",
+    description:
+      "About Maruf Mobin, Flutter Developer and Mobile Application Developer. Experience building apps across ride sharing, e-commerce, fleet, and tutoring.",
+  },
 };
 
 export default function AboutPage() {

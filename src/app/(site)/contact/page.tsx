@@ -15,6 +15,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
+  openGraph: {
+    title: "Contact Maruf Mobin — Hire a Flutter Developer",
+    description:
+      "Contact Maruf Mobin to hire a Flutter Developer, Mobile Application Developer, or App Developer for your next iOS and Android project.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Maruf Mobin — Hire a Flutter Developer",
+    description:
+      "Contact Maruf Mobin to hire a Flutter Developer, Mobile Application Developer, or App Developer for your next iOS and Android project.",
+  },
 };
 
 export default function ContactPage() {

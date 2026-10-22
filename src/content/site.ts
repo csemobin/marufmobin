@@ -14,7 +14,7 @@ export const site = {
     "Maruf Mobin — Flutter Developer | Mobile Application Developer | App Developer",
   description:
     "Maruf Mobin is a Flutter Developer and Mobile Application Developer building cross-platform apps for iOS and Android. Hire an App Developer for ride sharing, e-commerce, tutoring, and more.",
-  url: "https://marufmobin.netlify.app",
+  url: "https://marufmobin.vercel.app",
   email: "appdevmaruf@gmail.com",
   phone: "+8801936 691536",
   signature: {

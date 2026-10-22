@@ -19,9 +19,26 @@ export async function generateMetadata(
     return { title: "Page not found" };
   }
 
+  const title = `${project.title} — Maruf Mobin Flutter Developer`;
+  const url = `/work/${project.slug}`;
+
   return {
-    title: project.title,
+    title,
     description: project.summary,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description: project.summary,
+      url,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: project.summary,
+    },
   };
 }
 

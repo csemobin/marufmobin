@@ -1,54 +1,122 @@
-# Portfolio
+# Maruf Mobin — Portfolio
 
-A Next.js portfolio template with a short path from content to page. Edit the files in `src/content`. The routes, lists, project pages, and sitemap read from there.
+A production-ready **Next.js** portfolio for a Flutter / mobile developer. Content lives in typed data files; routes, SEO, sitemap, and project pages read from that content.
 
-## Start
+**Live:** [https://marufmobin.vercel.app](https://marufmobin.vercel.app)
+
+---
+
+## Features
+
+- Home hero, featured apps, experience, GitHub contributions, cover letter & CV, contact
+- Dedicated routes: `/`, `/work`, `/work/[slug]`, `/about`, `/contact`
+- SEO: metadata, Open Graph, Twitter cards, `robots.txt`, `sitemap.xml`, JSON-LD
+- Cover letter & curriculum vitae with client-side PDF download
+- Mobile bottom nav + desktop floating nav
+- Content-first architecture — swap identity without rewriting layout code
+
+---
+
+## Quick start
 
 ```bash
+npm install
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-| Script | What it does |
+| Script | Description |
 | --- | --- |
 | `npm run dev` | Local development |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | TypeScript |
 | `npm run build` | Production build |
-| `npm run start` | Serve the production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript check |
 
-## Make it yours
+---
 
-1. Set your name, URL, email, and social links in `src/content/site.ts`.
-2. Write the introduction, bio, skills, and experience in `src/content/profile.ts`.
-3. Replace the sample projects in `src/content/projects.ts`. One object is one project.
-4. Change the palette in `src/app/globals.css` if you want different colors.
+## Make it yours (reuse)
 
-A project with `featured: true` appears on the home page. Every project appears on `/work` and at `/work/[slug]`. The slug is the URL. Slugs must be unique.
+This repo is designed so another person can turn it into **their** portfolio by editing content and assets — not by rebuilding pages.
 
-The contact form validates on the server and does not send email yet. When you are ready to deliver messages, replace the success return in `src/features/contact/actions.ts` with your email provider.
+| Document | Purpose |
+| --- | --- |
+| [`docs/CUSTOMIZATION.md`](docs/CUSTOMIZATION.md) | Full checklist of what to change |
+| [`PROMPT.md`](PROMPT.md) | Paste into Cursor / ChatGPT to convert the site quickly |
 
-## How the code is arranged
+**Minimal path**
+
+1. Update `src/content/site.ts` — name, URL, email, socials, SEO.
+2. Update `src/content/profile.ts` — bio, skills, experience.
+3. Update `src/content/projects.ts` and `src/content/featured-projects.ts` — your apps.
+4. Update `src/content/cover-letter.ts` — letter + CV.
+5. Replace images in `src/images/` and `public/`.
+6. Set accent color in `src/app/globals.css` if needed.
+7. Deploy (Vercel recommended) and set Search Console.
+
+---
+
+## Project structure
 
 ```text
 src/
-  app/            Routes. Pages compose a view and export metadata.
-  content/        Words, projects, and site settings. Start here.
-  features/       One folder per screen: home, work, about, contact.
-  components/     Shared layout and small UI pieces.
-  lib/            Lookups and helpers used by more than one feature.
+  app/              Routes, metadata, robots, sitemap
+  content/          All copy and site data (edit here first)
+  features/         Screen sections (home, work, contact, …)
+  components/       Shared layout and UI
+  images/           Portrait, app art, logos
+  lib/              Shared helpers
+public/             favicon, apple-icon, og.jpg
+docs/               Reuse / customization guide
+PROMPT.md           AI conversion prompt
 ```
 
-Follow these boundaries:
+**Boundaries**
 
-- A route file chooses the view and the metadata. It does not own copy or markup for a whole screen.
-- A feature owns one screen. If a piece is used by a second feature, move it to `components` or `lib`.
-- Content files export data only. They do not import UI.
-- Server Components are the default. Add `"use client"` only when a component needs state or a browser event, as the mobile navigation and contact form do.
-- Expected form errors are returned as data. Unexpected render errors are handled by `app/(site)/error.tsx`.
-- Unknown project slugs call `notFound()`.
+- Routes choose views + metadata; they do not own long-form copy.
+- Features own one screen or section.
+- Content files export data only — no UI imports.
+- Prefer Server Components; add `"use client"` only for interactivity.
+
+---
+
+## Content map
+
+| File | Controls |
+| --- | --- |
+| `src/content/site.ts` | Name, role, URL, email, phone, socials, SEO keywords |
+| `src/content/profile.ts` | Hero, bio, skills, experience timeline |
+| `src/content/projects.ts` | `/work` case studies (`featured` → home) |
+| `src/content/featured-projects.ts` | Home featured stories + app grid |
+| `src/content/cover-letter.ts` | Cover letter + CV + PDF filenames |
+| `src/content/navigation.ts` | Primary nav labels / hashes |
+| `src/content/types.ts` | Shared TypeScript shapes |
+
+---
 
 ## Stack
 
-Next.js App Router, React, TypeScript, Tailwind CSS, and ESLint. Cache Components are enabled in `next.config.ts`, which is the current `create-next-app` default. Project pages are prerendered from `generateStaticParams`.
+- **Next.js** (App Router) · **React** · **TypeScript**
+- **Tailwind CSS** v4
+- **jspdf** (cover letter / CV download)
+- Deployable on **Vercel** (or any Node host)
+
+---
+
+## Contact form
+
+Validation runs on the server. Email delivery is not wired by default. To send messages, replace the success path in `src/features/contact/actions.ts` with your provider (Resend, SendGrid, etc.).
+
+---
+
+## License & credit
+
+Built as a personal portfolio for **Maruf Mobin**. If you reuse this template, replace all personal content, images, and store links with your own. Keep attribution in your README if you fork publicly — appreciated, not required.
+
+---
+
+## Author
+
+**Maruf Mobin** — Flutter Developer · Mobile Application Developer  
+Portfolio: [marufmobin.vercel.app](https://marufmobin.vercel.app) · GitHub: [MarufMobin](https://github.com/MarufMobin)

@@ -42,8 +42,8 @@ export function FeaturedProjects() {
           Featured <span className="text-[#A476FF]">Projects</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/65 md:text-base">
-          Selected apps by Maruf Mobin — Flutter Developer, Mobile Application
-          Developer, and App Developer.
+          Apps I developed as Maruf Mobin — Flutter Developer, Mobile
+          Application Developer, and App Developer.
         </p>
 
         <div className="mt-12 grid gap-16 lg:grid-cols-2 lg:gap-12">

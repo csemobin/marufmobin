@@ -4,7 +4,7 @@ import { WorkView } from "@/features/work/work-view";
 export const metadata: Metadata = {
   title: "Work — Maruf Mobin App Developer Projects",
   description:
-    "Selected mobile app work by Maruf Mobin, Flutter Developer and Mobile Application Developer — LMS, Lyfuber, Sleeknit, Court Connect, and more.",
+    "Mobile apps developed by Maruf Mobin, Flutter Developer and Mobile Application Developer — LMS Official App, Lyfuber, Sleeknit, and Court Connect.",
   keywords: [
     "Maruf Mobin",
     "Flutter Developer",
@@ -14,6 +14,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/work",
+  },
+  openGraph: {
+    title: "Work — Maruf Mobin App Developer Projects",
+    description:
+      "Mobile apps developed by Maruf Mobin, Flutter Developer and Mobile Application Developer — LMS Official App, Lyfuber, Sleeknit, and Court Connect.",
+    url: "/work",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Work — Maruf Mobin App Developer Projects",
+    description:
+      "Mobile apps developed by Maruf Mobin, Flutter Developer and Mobile Application Developer — LMS Official App, Lyfuber, Sleeknit, and Court Connect.",
   },
 };
 

@@ -21,8 +21,8 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <GithubSection />
-        <QuickConnect />
         <CoverLetterSection />
+        <QuickConnect />
         <SiteFooter />
       </div>
     </>

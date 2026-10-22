@@ -5,7 +5,7 @@ import { site, socials } from "@/content/site";
 import { ExperienceSection } from "@/features/experience/experience-section";
 import { FeaturedProjects } from "@/features/home/featured-projects";
 import { GithubPractice } from "@/features/home/github-practice";
-import portrait from "@/ref/marufmobin.jpg";
+import portrait from "@/images/marufmobin.jpg";
 
 const githubHref =
   socials.find((social) => social.label === "GitHub")?.href ??
@@ -38,7 +38,7 @@ export async function HomeView() {
               href="/#cover-letter"
               className="inline-flex items-center rounded-[3px] bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-white/90 [text-shadow:0.35px_0_0_currentColor,-0.35px_0_0_currentColor,0_0.35px_0_currentColor,0_-0.35px_0_currentColor]"
             >
-              View Cover Letter
+              View Cover Letter & CV
             </Link>
             <a
               href={githubHref}
