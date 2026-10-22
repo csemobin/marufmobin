@@ -106,7 +106,13 @@ PROMPT.md           AI conversion prompt
 
 ## Contact form
 
-Validation runs on the server. Email delivery is not wired by default. To send messages, replace the success path in `src/features/contact/actions.ts` with your provider (Resend, SendGrid, etc.).
+Validation runs on the server. Delivery goes through a **mail adapter** (`src/lib/mail`) — Nodemailer by default. Swap the adapter later without changing the form.
+
+1. Copy `.env.example` → `.env.local`
+2. Set `SMTP_USER` and `SMTP_PASS` (Gmail **App Password**)
+3. Optionally set `MAIL_TO` if inbox ≠ sender
+
+On Vercel, add the same variables in Project → Settings → Environment Variables.
 
 ---
 

@@ -136,7 +136,7 @@ JSON-LD uses `site` + `socials` from content — update content first.
 
 | Task | Where |
 | --- | --- |
-| Wire contact email sending | `src/features/contact/actions.ts` |
+| Wire / change contact email | `.env.local` + `src/lib/mail` (Nodemailer adapter; swap via `createMailAdapter`) |
 | Hide Cover & CV section | Remove from `src/app/(site)/layout.tsx` + nav entry |
 | Hide GitHub chart section | Remove from layout / home as needed |
 | Nav labels / order | `src/content/navigation.ts` + icons in `primary-nav.tsx` |
