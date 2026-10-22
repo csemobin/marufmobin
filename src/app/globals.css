@@ -7,6 +7,9 @@
   --line: #2a2a2a;
   --accent: #a476ff;
   --surface: #000000;
+  /* Self-hosted (no Google Fonts fetch at build — avoids Vercel Turbopack failures) */
+  --font-montserrat: "Montserrat Variable", "Montserrat", sans-serif;
+  --font-newsreader: "Newsreader", serif;
 }
 
 @theme inline {

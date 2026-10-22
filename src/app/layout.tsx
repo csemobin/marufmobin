@@ -1,34 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Montserrat, Newsreader } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import { PersonJsonLd, WebsiteJsonLd } from "@/components/seo/json-ld";
 import { site, seoKeywords } from "@/content/site";
+import "@fontsource-variable/montserrat/wght.css";
+import "@fontsource/newsreader/latin-400.css";
+import "@fontsource/newsreader/latin-400-italic.css";
+import "@fontsource/newsreader/latin-500.css";
+import "@fontsource/newsreader/latin-600.css";
+import "@fontsource/newsreader/latin-700.css";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["500", "700", "800", "900"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -90,7 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <PersonJsonLd />
